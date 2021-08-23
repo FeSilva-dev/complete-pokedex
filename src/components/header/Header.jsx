@@ -14,7 +14,12 @@ export function Header(){
         </div>
         <div className={styles.exitHeader}>
           <img src={synvia} alt="synvia logo"/>
-          <FontAwesomeIcon icon={faSignOutAlt} size="2x" cursor="pointer"/>
+          <FontAwesomeIcon 
+            icon={faSignOutAlt} 
+            size="2x" 
+            cursor="pointer"
+            color="#FFF"          
+          />
         </div>
       </div>
     </header>
