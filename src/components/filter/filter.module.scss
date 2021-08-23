@@ -1,0 +1,36 @@
+.asideContainer{
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  
+  h3{
+    color: var(--dark-gray);
+  }
+
+  .filterType{
+    margin: 1rem 0;
+    width: 15%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+
+    span{
+      text-align: center;
+      width: auto;
+      padding: 5px 2px;
+      border: 1px solid var(--red);
+      border-radius: 20px;
+      color: var(--red);
+      cursor: pointer;
+
+      &:hover{
+        background-color: var(--red);
+        color: var(--white);
+      }
+    }
+  }
+
+  .switchFavorite{
+    margin-top: 1rem;
+  }
+}
