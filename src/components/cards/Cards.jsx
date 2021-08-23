@@ -1,286 +1,39 @@
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from './cards.module.scss';
 
-export function Cards(){
+export function Cards({pokemonList, setFavoritePokemon}){
   return(
     <section className={styles.cardsContainer}>
-      <div className={styles.cardSingle}>
-        <div className={styles.imgPoke}></div>
-        <div className={styles.cardInfo}>
-          <span>N 001</span>
-          <h3>Bulbasaur</h3>
-          <div className={styles.pokeType}>
-            <span>Grass</span>
-            <span>poison</span>
+      {pokemonList.map((pokemon, index) => (
+        <div className={styles.cardSingle} key={index}>
+          <div className={styles.imgPoke}>
+            <div 
+              className={ styles.iconHeart } 
+            >
+              <FontAwesomeIcon 
+                className={pokemon.favorite ? styles.isFavorite : ""}
+                icon={faHeart} 
+                color="red" 
+                cursor="pointer" onClick={() => setFavoritePokemon(pokemon)}
+              />
+            </div>
+            <img 
+              src={pokemon.sprites.large} 
+              alt={pokemon.name}
+            />
+          </div>
+          <div className={styles.cardInfo}>
+            <span>Nº {pokemon.national_number}</span>
+            <h3>{pokemon.name}</h3>
+            <div className={styles.pokeType}>
+              {pokemon.type.map((type, index) => (
+                <span className={type} key={index}>{type}</span>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
-      <div className={styles.cardSingle}>
-        <div className={styles.imgPoke}></div>
-        <div className={styles.cardInfo}>
-          <span>N 001</span>
-          <h3>Bulbasaur</h3>
-          <div className={styles.pokeType}>
-            <span>Grass</span>
-            <span>poison</span>
-          </div>
-        </div>
-      </div>
-      <div className={styles.cardSingle}>
-        <div className={styles.imgPoke}></div>
-        <div className={styles.cardInfo}>
-          <span>N 001</span>
-          <h3>Bulbasaur</h3>
-          <div className={styles.pokeType}>
-            <span>Grass</span>
-            <span>poison</span>
-          </div>
-        </div>
-      </div>
-      <div className={styles.cardSingle}>
-        <div className={styles.imgPoke}></div>
-        <div className={styles.cardInfo}>
-          <span>N 001</span>
-          <h3>Bulbasaur</h3>
-          <div className={styles.pokeType}>
-            <span>Grass</span>
-            <span>poison</span>
-          </div>
-        </div>
-      </div>
-      <div className={styles.cardSingle}>
-        <div className={styles.imgPoke}></div>
-        <div className={styles.cardInfo}>
-          <span>N 001</span>
-          <h3>Bulbasaur</h3>
-          <div className={styles.pokeType}>
-            <span>Grass</span>
-            <span>poison</span>
-          </div>
-        </div>
-      </div>
-      <div className={styles.cardSingle}>
-        <div className={styles.imgPoke}></div>
-        <div className={styles.cardInfo}>
-          <span>N 001</span>
-          <h3>Bulbasaur</h3>
-          <div className={styles.pokeType}>
-            <span>Grass</span>
-            <span>poison</span>
-          </div>
-        </div>
-      </div>
-      <div className={styles.cardSingle}>
-        <div className={styles.imgPoke}></div>
-        <div className={styles.cardInfo}>
-          <span>N 001</span>
-          <h3>Bulbasaur</h3>
-          <div className={styles.pokeType}>
-            <span>Grass</span>
-            <span>poison</span>
-          </div>
-        </div>
-      </div>
-      <div className={styles.cardSingle}>
-        <div className={styles.imgPoke}></div>
-        <div className={styles.cardInfo}>
-          <span>N 001</span>
-          <h3>Bulbasaur</h3>
-          <div className={styles.pokeType}>
-            <span>Grass</span>
-            <span>poison</span>
-          </div>
-        </div>
-      </div>
-      <div className={styles.cardSingle}>
-        <div className={styles.imgPoke}></div>
-        <div className={styles.cardInfo}>
-          <span>N 001</span>
-          <h3>Bulbasaur</h3>
-          <div className={styles.pokeType}>
-            <span>Grass</span>
-            <span>poison</span>
-          </div>
-        </div>
-      </div>
-      <div className={styles.cardSingle}>
-        <div className={styles.imgPoke}></div>
-        <div className={styles.cardInfo}>
-          <span>N 001</span>
-          <h3>Bulbasaur</h3>
-          <div className={styles.pokeType}>
-            <span>Grass</span>
-            <span>poison</span>
-          </div>
-        </div>
-      </div>
-      <div className={styles.cardSingle}>
-        <div className={styles.imgPoke}></div>
-        <div className={styles.cardInfo}>
-          <span>N 001</span>
-          <h3>Bulbasaur</h3>
-          <div className={styles.pokeType}>
-            <span>Grass</span>
-            <span>poison</span>
-          </div>
-        </div>
-      </div>
-      <div className={styles.cardSingle}>
-        <div className={styles.imgPoke}></div>
-        <div className={styles.cardInfo}>
-          <span>N 001</span>
-          <h3>Bulbasaur</h3>
-          <div className={styles.pokeType}>
-            <span>Grass</span>
-            <span>poison</span>
-          </div>
-        </div>
-      </div>
-      <div className={styles.cardSingle}>
-        <div className={styles.imgPoke}></div>
-        <div className={styles.cardInfo}>
-          <span>N 001</span>
-          <h3>Bulbasaur</h3>
-          <div className={styles.pokeType}>
-            <span>Grass</span>
-            <span>poison</span>
-          </div>
-        </div>
-      </div>
-      <div className={styles.cardSingle}>
-        <div className={styles.imgPoke}></div>
-        <div className={styles.cardInfo}>
-          <span>N 001</span>
-          <h3>Bulbasaur</h3>
-          <div className={styles.pokeType}>
-            <span>Grass</span>
-            <span>poison</span>
-          </div>
-        </div>
-      </div>
-      <div className={styles.cardSingle}>
-        <div className={styles.imgPoke}></div>
-        <div className={styles.cardInfo}>
-          <span>N 001</span>
-          <h3>Bulbasaur</h3>
-          <div className={styles.pokeType}>
-            <span>Grass</span>
-            <span>poison</span>
-          </div>
-        </div>
-      </div>
-      <div className={styles.cardSingle}>
-        <div className={styles.imgPoke}></div>
-        <div className={styles.cardInfo}>
-          <span>N 001</span>
-          <h3>Bulbasaur</h3>
-          <div className={styles.pokeType}>
-            <span>Grass</span>
-            <span>poison</span>
-          </div>
-        </div>
-      </div>
-      <div className={styles.cardSingle}>
-        <div className={styles.imgPoke}></div>
-        <div className={styles.cardInfo}>
-          <span>N 001</span>
-          <h3>Bulbasaur</h3>
-          <div className={styles.pokeType}>
-            <span>Grass</span>
-            <span>poison</span>
-          </div>
-        </div>
-      </div>
-      <div className={styles.cardSingle}>
-        <div className={styles.imgPoke}></div>
-        <div className={styles.cardInfo}>
-          <span>N 001</span>
-          <h3>Bulbasaur</h3>
-          <div className={styles.pokeType}>
-            <span>Grass</span>
-            <span>poison</span>
-          </div>
-        </div>
-      </div>
-      <div className={styles.cardSingle}>
-        <div className={styles.imgPoke}></div>
-        <div className={styles.cardInfo}>
-          <span>N 001</span>
-          <h3>Bulbasaur</h3>
-          <div className={styles.pokeType}>
-            <span>Grass</span>
-            <span>poison</span>
-          </div>
-        </div>
-      </div>
-      <div className={styles.cardSingle}>
-        <div className={styles.imgPoke}></div>
-        <div className={styles.cardInfo}>
-          <span>N 001</span>
-          <h3>Bulbasaur</h3>
-          <div className={styles.pokeType}>
-            <span>Grass</span>
-            <span>poison</span>
-          </div>
-        </div>
-      </div>
-      <div className={styles.cardSingle}>
-        <div className={styles.imgPoke}></div>
-        <div className={styles.cardInfo}>
-          <span>N 001</span>
-          <h3>Bulbasaur</h3>
-          <div className={styles.pokeType}>
-            <span>Grass</span>
-            <span>poison</span>
-          </div>
-        </div>
-      </div>
-      <div className={styles.cardSingle}>
-        <div className={styles.imgPoke}></div>
-        <div className={styles.cardInfo}>
-          <span>N 001</span>
-          <h3>Bulbasaur</h3>
-          <div className={styles.pokeType}>
-            <span>Grass</span>
-            <span>poison</span>
-          </div>
-        </div>
-      </div>
-      <div className={styles.cardSingle}>
-        <div className={styles.imgPoke}></div>
-        <div className={styles.cardInfo}>
-          <span>N 001</span>
-          <h3>Bulbasaur</h3>
-          <div className={styles.pokeType}>
-            <span>Grass</span>
-            <span>poison</span>
-          </div>
-        </div>
-      </div>
-      <div className={styles.cardSingle}>
-        <div className={styles.imgPoke}></div>
-        <div className={styles.cardInfo}>
-          <span>N 001</span>
-          <h3>Bulbasaur</h3>
-          <div className={styles.pokeType}>
-            <span>Grass</span>
-            <span>poison</span>
-          </div>
-        </div>
-      </div>
-      <div className={styles.cardSingle}>
-        <div className={styles.imgPoke}></div>
-        <div className={styles.cardInfo}>
-          <span>N 001</span>
-          <h3>Bulbasaur</h3>
-          <div className={styles.pokeType}>
-            <span>Grass</span>
-            <span>poison</span>
-          </div>
-        </div>
-      </div>
-      
-
-      
+      ))}
     </section>
   );
 };

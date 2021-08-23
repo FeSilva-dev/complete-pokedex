@@ -23,7 +23,38 @@
   .imgPoke{
     width: 200px;
     height: 200px;
-    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    .iconHeart{
+      position: absolute;
+      right: 10px;
+      top: 10px;
+
+      svg{
+        display: none;
+        width: 20px;
+        height: 20px;
+
+        &.isFavorite{
+          display: block;
+        }
+      }
+    }
+
+    img{
+      width: 150px;
+      height: 150px;
+    }
+
+    &:hover{
+      .iconHeart svg{
+        opacity: 0.5;
+        display: block;
+      }
+    }
   }
 
   .cardInfo{
@@ -42,10 +73,11 @@
       margin-top: 1rem;
       span{
         padding: 8px;
-        border: 1px solid black;
         margin-right: 10px;
         border-radius: 12px;
+        color: white;
       }
+
     }
   }
 }
