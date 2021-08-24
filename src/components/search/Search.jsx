@@ -41,7 +41,7 @@ export function Search(){
 
       <div className={styles.filterSearch}>
         <span>Ordenar por</span>
-        <select defaultValue={1} onChange={(event) => filterByNumber(event.target.value)}>
+        <select defaultValue={"1"} onChange={(event) => filterByNumber(event.target.value)}>
           <option value="1">Menor número primeiro</option>
           <option value="2">Maior número primeiro</option>
         </select>

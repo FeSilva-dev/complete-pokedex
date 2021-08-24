@@ -4,7 +4,7 @@ import styles from './filter.module.scss';
 
 export function Filter(){
   const [typeToFilter, setTypeToFilter] = useState("");
-  const {pokemonTypes, filterPoke} = usePokemon();
+  const {pokemonTypes, filterPoke, setFilterByFavorite} = usePokemon();
 
   function setFilterType(type){
     if(type === typeToFilter){
@@ -31,7 +31,12 @@ export function Filter(){
         ))}
       </div>
       <h3>Filtrar favorito</h3>
-      <div className={styles.switchFavorite}>Filtrar</div>
+      <div className={styles.switchFavorite}>
+        <label className={styles.switch}>
+          <input type="checkbox" />
+          <span className={styles.toggleSwitch} onClick={setFilterByFavorite}></span>
+        </label>
+      </div>
     </aside>
   );
 };
