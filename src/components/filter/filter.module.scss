@@ -23,6 +23,11 @@
       color: var(--red);
       cursor: pointer;
 
+      &.isActiveFilter{
+        background-color: var(--red);
+        color: var(--white);
+      }
+
       &:hover{
         background-color: var(--red);
         color: var(--white);
