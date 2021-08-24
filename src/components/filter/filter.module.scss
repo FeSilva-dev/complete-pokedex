@@ -34,6 +34,11 @@
       }
     }
 
+    
+    @media (max-width: 1200px) {
+      width: 80%;
+    }
+
     @media (max-width: 768px) {
       margin: 1rem 0;
       width: 100%;
@@ -99,6 +104,10 @@
         }
       }
     }
+  }
+
+  @media (max-width: 1200px) {
+    padding: 0 1rem;
   }
 
   @media (max-width: 768px) {
