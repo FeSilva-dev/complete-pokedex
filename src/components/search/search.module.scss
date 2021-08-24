@@ -21,6 +21,20 @@
       cursor: pointer;
       color: var(--red);
     }
+
+    .clearButton{
+      border: 1px solid var(--red);
+      margin-left: 1.5rem;
+      padding: 5px 8px;
+      border-radius: 12px;
+      background-color: transparent;
+      color: var(--font);
+
+      &:hover{
+        background-color: var(--red);
+        color: white;
+      }
+    }
   }
 
   .filterSearch{

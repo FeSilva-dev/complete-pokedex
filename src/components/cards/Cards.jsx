@@ -1,8 +1,10 @@
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { usePokemon } from '../../context/PokemonContext';
 import styles from './cards.module.scss';
 
-export function Cards({pokemonList, setFavoritePokemon}){
+export function Cards(){
+  const {pokemonList, setFavoritePokemon} = usePokemon();
   return(
     <section className={styles.cardsContainer}>
       {pokemonList.map((pokemon, index) => (
