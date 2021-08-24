@@ -6,7 +6,9 @@ export const PokemonContext = createContext({});
 export function PokemonContextProvider({children}){
   const [pokemonList, setPokemonList] = useState([]);
   const [pokemonTypes, setPokemonTypes] = useState([]);
-  const [optionToFilter, setOptionToFilter] = useState("");
+  const [optionToFilter, setOptionToFilter] = useState("1");
+  const [favoritePokemons, setFavoritePokemons] = useState([]);
+  const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
     async function getAllPokemonInfo(){
@@ -32,25 +34,6 @@ export function PokemonContextProvider({children}){
     getAllPokemonInfo();
   }, []);
 
-  useEffect(() => {
-    function filterPokemonByNumber(){
-      if(optionToFilter === "2"){
-        const sortedByNumber = 
-          pokemonList.sort((a, b) => {
-            return Number(a.national_number) > Number(b.national_number) ? 1 : Number(a.national_number) < Number(b.national_number) ? -1 : 0;
-          });
-        setPokemonList(sortedByNumber);
-      }else{
-        const sortedByNumber =
-          pokemonList.sort((a, b) => {
-            return Number(a.national_number) < Number(b.national_number) ? 1 : Number(a.national_number) > Number(b.national_number) ? -1 : 0;
-          });
-        setPokemonList(sortedByNumber);
-      };
-    }
-    filterPokemonByNumber();
-  }, [optionToFilter, pokemonList]);
-
   function removeDuplicate(array){
     const resultsSorted = array.filter((pokemon, index, self) =>
       index === self.findIndex((pokemonToFilter) => (
@@ -73,7 +56,10 @@ export function PokemonContextProvider({children}){
       };
       return poke;
     });
-    setPokemonList(newPokemonState)
+
+    const favoritePokemons = newPokemonState.filter(pokemon => pokemon.favorite);
+    setFavoritePokemons(favoritePokemons);
+    setPokemonList(newPokemonState);
   }
 
   async function filterPoke(typeFilter){
@@ -133,7 +119,25 @@ export function PokemonContextProvider({children}){
   }
 
   function filterByNumber(value){
+    if(value === "2"){
+      const sortedByNumber =
+      pokemonList.sort((a, b) => {
+        return Number(a.national_number) < Number(b.national_number) ? 1 : Number(a.national_number) > Number(b.national_number) ? -1 : 0;
+      });
+      setPokemonList(sortedByNumber);
+
+    }else{
+      const sortedByNumber = 
+        pokemonList.sort((a, b) => {
+          return Number(a.national_number) > Number(b.national_number) ? 1 : Number(a.national_number) < Number(b.national_number) ? -1 : 0;
+        });
+      setPokemonList(sortedByNumber);
+    };
     setOptionToFilter(value);
+  }
+
+  function setFilterByFavorite(){
+    setIsFavorite(!isFavorite);
   }
 
   return(
@@ -147,7 +151,10 @@ export function PokemonContextProvider({children}){
         filterByNumber,
         pokemonTypes,
         pokemonList,
-        optionToFilter
+        optionToFilter,
+        favoritePokemons,
+        isFavorite,
+        setFilterByFavorite
       }}
     >
       {children}
