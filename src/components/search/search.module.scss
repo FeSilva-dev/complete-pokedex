@@ -35,6 +35,13 @@
         color: white;
       }
     }
+
+    @media (max-width: 768px) {
+      margin: 0 auto;
+      text-align: center;
+      flex-direction: column;
+      margin-bottom: 2rem;
+    }
   }
 
   .filterSearch{
@@ -55,5 +62,19 @@
       color: var(--red);
       border: 1px solid var(--red);
     }
+
+    @media (max-width: 768px) {
+      width: 100%;
+      margin: 0 auto;
+      flex-direction: column;
+    }
+  }
+
+  @media (max-width: 768px) {
+    max-width: 1300px;
+    margin: 3rem auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
   }
 }
